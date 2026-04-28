@@ -158,13 +158,12 @@ footer{background:#0d1f2d;color:#fff;}
 .page-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:80px 20px;text-align:center;color:#fff;}
 .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,46px);font-weight:900;margin-bottom:10px;}
 .page-hero p{font-size:15px;opacity:.85;max-width:580px;margin:auto;}
-.mpd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;padding:56px 20px;max-width:1160px;margin:auto;}
-.mpd-card{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.07);border:1px solid #eee;padding:22px;display:flex;align-items:center;gap:16px;transition:.3s;cursor:pointer;}
-.mpd-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.13);transform:translateY(-3px);border-color:var(--gold);}
-.mpd-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--blue),var(--blue-light));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
-.mpd-info h3{font-weight:800;font-size:14px;color:var(--blue-dark);margin-bottom:4px;line-height:1.3;}
-.mpd-info p{font-size:12px;color:var(--text-light);}
-.mpd-dl{margin-left:auto;color:var(--gold);font-size:20px;flex-shrink:0;}
+.mpd-table {width:100%; border-collapse:collapse; margin:20px 0; background:#fff; box-shadow:0 4px 15px rgba(0,0,0,.08);}
+.mpd-table th, .mpd-table td {padding:14px 16px; border:1px solid #ddd; text-align:left; vertical-align:top;}
+.mpd-table th {background:var(--blue-dark); color:#fff; font-weight:700;}
+.mpd-table tr:nth-child(even) {background:#f9f9f9;}
+.view-link {color:var(--gold); font-weight:700; text-decoration:underline;}
+.view-link:hover {color:var(--gold-light);}
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
 .contact-item{display:flex;gap:12px;margin-bottom:20px;align-items:flex-start;}
@@ -233,7 +232,7 @@ footer{background:#0d1f2d;color:#fff;}
       <li><a href="#" class="active" onclick="showPage('home',this);return false;">Home</a></li>
       <li><a href="#" onclick="showPage('about',this);return false;">About</a></li>
       <li><a href="#" onclick="showPage('gallery',this);return false;">Gallery</a></li>
-      <li><a href="#" onclick="showPage('mpd',this);return false;">MPD</a></li>
+      <li><a href="#" onclick="showPage('mandatory',this);return false;">Mandatory Public Disclosure</a></li>
       <li><a href="#" onclick="showPage('contact',this);return false;">Contact</a></li>
     </ul>
     <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
@@ -255,13 +254,16 @@ footer{background:#0d1f2d;color:#fff;}
     <li><a href="#" onclick="showPage('home',null);document.getElementById('mobileMenu').classList.remove('open');return false;">HOME</a></li>
     <li><a href="#" onclick="showPage('about',null);document.getElementById('mobileMenu').classList.remove('open');return false;">ABOUT</a></li>
     <li><a href="#" onclick="showPage('gallery',null);document.getElementById('mobileMenu').classList.remove('open');return false;">GALLERY</a></li>
-    <li><a href="#" onclick="showPage('mpd',null);document.getElementById('mobileMenu').classList.remove('open');return false;">MPD</a></li>
+    <li><a href="#" onclick="showPage('mandatory',null);document.getElementById('mobileMenu').classList.remove('open');return false;">MANDATORY PUBLIC DISCLOSURE</a></li>
     <li><a href="#" onclick="showPage('contact',null);document.getElementById('mobileMenu').classList.remove('open');return false;">CONTACT</a></li>
   </ul>
 </div>
 
 <!-- ======================== HOME PAGE ======================== -->
 <div class="page active" id="page-home">
+
+<!-- MARQUEE, HERO, STATS, ABOUT, TOPPERS, FEATURES, TESTIMONIALS, GALLERY PREVIEW - All unchanged -->
+<!-- (Keeping exactly as you provided) -->
 
 <!-- MARQUEE -->
 <div class="marquee-bar">
@@ -537,32 +539,24 @@ footer{background:#0d1f2d;color:#fff;}
     <div class="section-line"></div>
     
     <div class="gallery-grid">
-      
-      <!-- Replace these with your actual photo filenames -->
       <div class="gallery-item">
         <img src="photo1.jpg" alt="School Event" onerror="this.src='https://via.placeholder.com/600x400/1B5C8A/ffffff?text=School+Photo+1';">
       </div>
-      
       <div class="gallery-item">
         <img src="photo2.jpg" alt="School Event" onerror="this.src='https://via.placeholder.com/600x400/B8962E/ffffff?text=School+Photo+2';">
       </div>
-      
       <div class="gallery-item">
         <img src="photo3.jpg" alt="School Event" onerror="this.src='https://via.placeholder.com/600x400/28a745/ffffff?text=School+Photo+3';">
       </div>
-      
       <div class="gallery-item">
         <img src="photo4.jpg" alt="School Event" onerror="this.src='https://via.placeholder.com/600x400/2980B9/ffffff?text=School+Photo+4';">
       </div>
-      
       <div class="gallery-item">
         <img src="photo5.jpg" alt="School Event" onerror="this.src='https://via.placeholder.com/600x400/D4AF37/ffffff?text=School+Photo+5';">
       </div>
-      
       <div class="gallery-item">
         <img src="photo6.jpg" alt="School Event" onerror="this.src='https://via.placeholder.com/600x400/0d3d5e/ffffff?text=School+Photo+6';">
       </div>
-
     </div>
 
     <div style="text-align:center; margin-top:32px;">
@@ -624,7 +618,6 @@ footer{background:#0d1f2d;color:#fff;}
 </div>
 
 <!-- ======================== GALLERY PAGE ======================== -->
-<!-- ======================== GALLERY PAGE ======================== -->
 <div class="page" id="page-gallery">
   <div class="page-hero">
     <h1>Our Gallery</h1>
@@ -634,178 +627,79 @@ footer{background:#0d1f2d;color:#fff;}
   <section>
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; padding: 20px 0;">
-        
-        <!-- Replace these image sources with your actual photo filenames -->
-        
-        <div class="gallery-item">
-          <img src="photo1.jpg" alt="School Event 1" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+1';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo2.jpg" alt="School Event 2" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+2';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo3.jpg" alt="School Event 3" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+3';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo4.jpg" alt="School Event 4" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+4';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo5.jpg" alt="School Event 5" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+5';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo6.jpg" alt="School Event 6" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+6';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo7.jpg" alt="School Event 7" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+7';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo8.jpg" alt="School Event 8" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+8';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo9.jpg" alt="School Event 9" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+9';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo10.jpg" alt="School Event 10" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+10';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo11.jpg" alt="School Event 11" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+11';this.alt='Image not found';">
-        </div>
-        
-        <div class="gallery-item">
-          <img src="photo12.jpg" alt="School Event 12" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+12';this.alt='Image not found';">
-        </div>
+        <div class="gallery-item"><img src="photo1.jpg" alt="School Event 1" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+1';"></div>
+        <div class="gallery-item"><img src="photo2.jpg" alt="School Event 2" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+2';"></div>
+        <div class="gallery-item"><img src="photo3.jpg" alt="School Event 3" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+3';"></div>
+        <div class="gallery-item"><img src="photo4.jpg" alt="School Event 4" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+4';"></div>
+        <div class="gallery-item"><img src="photo5.jpg" alt="School Event 5" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+5';"></div>
+        <div class="gallery-item"><img src="photo6.jpg" alt="School Event 6" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+6';"></div>
+        <div class="gallery-item"><img src="photo7.jpg" alt="School Event 7" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+7';"></div>
+        <div class="gallery-item"><img src="photo8.jpg" alt="School Event 8" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+8';"></div>
+        <div class="gallery-item"><img src="photo9.jpg" alt="School Event 9" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+9';"></div>
+        <div class="gallery-item"><img src="photo10.jpg" alt="School Event 10" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+10';"></div>
+        <div class="gallery-item"><img src="photo11.jpg" alt="School Event 11" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+11';"></div>
+        <div class="gallery-item"><img src="photo12.jpg" alt="School Event 12" onerror="this.src='https://via.placeholder.com/600x400?text=Photo+12';"></div>
       </div>
+    </div>
   </section>
 </div>
-<!-- ======================== MPD PAGE======================== -->
-<div class="page" id="page-mpd">
+
+<!-- ======================== MANDATORY PUBLIC DISCLOSURE PAGE ======================== -->
+<div class="page" id="page-mandatory">
   <div class="page-hero">
     <h1>Mandatory Public Disclosure</h1>
-    <p>As per CBSE guidelines, all mandatory documents are available for direct download. Click on any card to open the PDF instantly.</p>
+    <p>As per CBSE Appendix-IX Guidelines</p>
   </div>
-  
-  <div class="mpd-grid">
 
-    <a href="cbse-affiliation-letter.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">🏛️</div>
-      <div class="mpd-info">
-        <h3>CBSE Affiliation Letter</h3>
-        <p>Official CBSE Affiliation Letter</p>
+  <section style="padding:40px 20px;">
+    <div class="container" style="max-width:1100px;">
+
+      <h2 style="color:var(--blue-dark); margin:30px 0 15px;">A. GENERAL INFORMATION</h2>
+      <table class="mpd-table">
+        <thead><tr><th>SL NO.</th><th>INFORMATION</th><th>DETAILS</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>NAME OF THE SCHOOL</td><td>SRM International School</td></tr>
+          <tr><td>2</td><td>AFFILIATION NO.</td><td>[Enter Affiliation No.]</td></tr>
+          <tr><td>3</td><td>SCHOOL CODE</td><td>[Enter School Code]</td></tr>
+          <tr><td>4</td><td>COMPLETE ADDRESS WITH PIN CODE</td><td>Turka-Tisore, Khatima Road, Sitarganj, U.S. Nagar, Uttarakhand - 262405</td></tr>
+          <tr><td>5</td><td>PRINCIPAL NAME & QUALIFICATION</td><td>[Principal Name], [Qualification]</td></tr>
+          <tr><td>6</td><td>SCHOOL EMAIL ID</td><td>[Enter Email ID]</td></tr>
+          <tr><td>7</td><td>CONTACT DETAILS</td><td>9105666000, 9690958398</td></tr>
+        </tbody>
+      </table>
+
+      <h2 style="color:var(--blue-dark); margin:40px 0 15px;">B. DOCUMENTS AND INFORMATION</h2>
+      <table class="mpd-table">
+        <thead><tr><th>SL NO.</th><th>DOCUMENTS / INFORMATION</th><th>UPLOAD DOCUMENTS</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>COPIES OF AFFILIATION LETTER</td><td><a href="cbse-affiliation-letter.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>2</td><td>SOCIETY REGISTRATION CERTIFICATE</td><td><a href="srm-society-registration.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>3</td><td>NO OBJECTION CERTIFICATE (NOC) BY STATE GOVT.</td><td><a href="noc-state-government.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>4</td><td>BUILDING SAFETY CERTIFICATE</td><td><a href="building-safety-certificate.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>5</td><td>FIRE SAFETY CERTIFICATE</td><td><a href="fire-noc.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>6</td><td>DRINKING WATER & SANITATION CERTIFICATE</td><td><a href="drinking-water-sanitation.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>7</td><td>FEE STRUCTURE</td><td><a href="fee-structure.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>8</td><td>ACADEMIC CALENDAR</td><td><a href="academic-calendar.pdf" target="_blank" class="view-link">View</a></td></tr>
+        </tbody>
+      </table>
+
+      <h2 style="color:var(--blue-dark); margin:40px 0 15px;">C. RESULTS AND ACADEMICS</h2>
+      <table class="mpd-table">
+        <thead><tr><th>SL NO.</th><th>INFORMATION</th><th>DOCUMENTS</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>FEE STRUCTURE</td><td><a href="fee-structure.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>2</td><td>ANNUAL ACADEMIC CALENDAR</td><td><a href="academic-calendar.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>3</td><td>LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)</td><td><a href="smc-members-list.pdf" target="_blank" class="view-link">View</a></td></tr>
+          <tr><td>4</td><td>LIST OF PTA MEMBERS</td><td><a href="pta-members.pdf" target="_blank" class="view-link">View</a></td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:40px; padding:20px; background:#fff3cd; border:1px solid #ffc107; border-radius:10px; font-size:14px;">
+        <strong>Note:</strong> All documents are uploaded as per CBSE guidelines. For physical copies or queries, contact the school office at 9105666000.
       </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="fire-noc.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">🔥</div>
-      <div class="mpd-info">
-        <h3>Fire Safety NOC</h3>
-        <p>Fire No Objection Certificate</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="drinking-water-sanitation.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">💧</div>
-      <div class="mpd-info">
-        <h3>Drinking Water & Sanitation Certificate</h3>
-        <p>Safe drinking water and sanitation certificate</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="smc-members-list.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">👥</div>
-      <div class="mpd-info">
-        <h3>School Management Committee (SMC)</h3>
-        <p>List of SMC Members</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="academic-calendar.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">📅</div>
-      <div class="mpd-info">
-        <h3>Academic Calendar</h3>
-        <p>Annual academic schedule and holidays</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="pta-members.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">🤝</div>
-      <div class="mpd-info">
-        <h3>Parent Teacher Association (PTA)</h3>
-        <p>List of PTA Members</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="srm-society-registration.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">📋</div>
-      <div class="mpd-info">
-        <h3>SRM Society Registration</h3>
-        <p>Society Registration Certificate & Members List</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="building-safety-certificate.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">🏗️</div>
-      <div class="mpd-info">
-        <h3>Building Safety Certificate</h3>
-        <p>Structural safety certificate of school building</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="state-govt-affiliation-letter.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">📜</div>
-      <div class="mpd-info">
-        <h3>State Government Affiliation Letter</h3>
-        <p>Affiliation letter from Uttarakhand Government</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="fee-structure.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">💰</div>
-      <div class="mpd-info">
-        <h3>Fee Structure</h3>
-        <p>Detailed fee structure for all classes</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="noc-state-government.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">📄</div>
-      <div class="mpd-info">
-        <h3>NOC from State Government</h3>
-        <p>No Objection Certificate from Uttarakhand Govt.</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-    <a href="affiliation-class-1-8.pdf" target="_blank" class="mpd-card">
-      <div class="mpd-icon">🎓</div>
-      <div class="mpd-info">
-        <h3>Affiliation Letter (Class 1-8)</h3>
-        <p>CBSE Affiliation for Elementary Classes</p>
-      </div>
-      <div class="mpd-dl">⬇️ Download</div>
-    </a>
-
-  </div>
     </div>
+  </section>
+</div>
 
 <!-- ======================== CONTACT PAGE ======================== -->
 <div class="page" id="page-contact">
@@ -880,7 +774,7 @@ footer{background:#0d1f2d;color:#fff;}
 </section>
 </div>
 
-<!-- FOOTER (universal) -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
@@ -905,7 +799,7 @@ footer{background:#0d1f2d;color:#fff;}
         <li><a onclick="showPage('home',null);return false;" href="#">Home</a></li>
         <li><a onclick="showPage('about',null);return false;" href="#">About</a></li>
         <li><a onclick="showPage('gallery',null);return false;" href="#">Gallery</a></li>
-        <li><a onclick="showPage('mpd',null);return false;" href="#">MPD</a></li>
+        <li><a onclick="showPage('mandatory',null);return false;" href="#">Mandatory Public Disclosure</a></li>
         <li><a onclick="showPage('contact',null);return false;" href="#">Contact</a></li>
       </ul>
     </div>
@@ -916,11 +810,11 @@ footer{background:#0d1f2d;color:#fff;}
       <div class="footer-contact-item"><span class="ico">⏰</span><p>Mon – Sat: 8:00 AM – 2:30 PM</p></div>
     </div>
   </div>
-  <div class="footer-bottom">© 2025 SRM International School, Sitarganj, Uttarakhand. All Rights Reserved. | CBSE Affiliated School</div>
+  <div class="footer-bottom">© 2026 SRM International School, Sitarganj, Uttarakhand. All Rights Reserved. | CBSE Affiliated School</div>
 </footer>
 
 <script>
-// PAGE ROUTING
+// PAGE ROUTING - Updated for new page id
 function showPage(name, clickedEl){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
@@ -957,10 +851,10 @@ function goTesti(n){
 setInterval(function(){goTesti((currentTesti+1)%4);},5000);
 window.addEventListener('resize',function(){goTesti(currentTesti);});
 
-// SCROLL TOP BUTTON
+// SCROLL TOP
 window.addEventListener('scroll',function(){
   document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
 });
 </script>
 </body>
-</html>
+  </html>
